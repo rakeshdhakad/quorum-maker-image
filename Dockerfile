@@ -1,4 +1,10 @@
 FROM ubuntu:16.04
+
+RUN apt-get update && apt-get install --yes curl git gcc make bash python
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN npm i web3-quorum
+
 ADD lib/install_baseimage.sh /root/quorum-maker/install_baseimage.sh
 RUN /root/quorum-maker/install_baseimage.sh
 
